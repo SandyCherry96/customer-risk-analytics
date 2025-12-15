@@ -6,14 +6,23 @@
 ### Business Problem
 The company processes a large volume of customer transactions, but some customers create financial and operational risk through **fraud attempts, payment failures, and chargebacks**. These risky behaviors can lead to revenue loss, increased operational costs, regulatory issues, and damage to customer trust.
 
-### Objective
-The objective of this project is to use SQL to:
+## 🎯 Objective — Customer Risk & Performance Analysis
 
-- Consolidate multiple risk signals into a single, unified **customer-level view**
-- Identify **high-risk customers** based on historical behavior
-- Create a **risk scoring and segmentation** (Low / Medium / High)
-- Enable **data-driven decisions** such as customer monitoring, policy tightening, or preventive actions
+The objective of this project is to analyze customer behavior, revenue contribution, and risk exposure using SQL in order to support data-driven decision-making across risk management, pricing, and customer retention.
 
+Specifically, this project aims to:
+
+Classify customers into Low, Medium, and High-Risk segments based on fraud behavior, chargebacks, transaction outcomes, and credit score
+
+Identify revenue concentration and evaluate the trade-off between high-value and high-risk customers
+
+Compare fraud vs non-fraud customer behavior to understand financial and operational impact
+
+Assess channel performance by analyzing transaction success, revenue, and risk across different customer touchpoints
+
+Evaluate the impact of credit score and demographics on customer lifetime value and risk profile
+
+Provide actionable insights that help stakeholders optimize pricing strategies, strengthen fraud controls, and improve customer retention
 ---
 
 ## Key Business Questions Addressed
