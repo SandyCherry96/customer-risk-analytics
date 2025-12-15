@@ -28,10 +28,20 @@ The objective of this project is to use SQL to:
 - Which customers should be monitored, restricted, or reviewed?
 
 ---
+## 2. Understanding Risk Signals
 
-## Success Criteria
+A risk signal represents any customer behavior that may cause financial loss, fraud, or operational issues.  
+In this project, risk is defined based on **customer behavior**, not demographics.
 
-- A clear **customer-level risk score**
-- Actionable **risk segmentation**
-- Clean, validated **SQL outputs ready for visualization**
-- Insights that support **operational and risk-management decisions**
+**Risk signals used:**
+- **Fraud signals:** Transactions flagged as fraudulent or suspicious
+- **Payment risk:** Failed, reversed, or repeatedly retried payments
+- **Chargebacks:** Customer disputes raised after transaction completion
+
+**Severity logic:**
+- **High:** Fraud flags, Chargebacks  
+- **Medium:** Repeated payment failures, Payment reversals  
+- **Low:** Occasional payment failures
+
+Risk events occur at the **transaction level**, while final risk assessment is performed at the **customer level** using event frequency, severity, and recency.
+
