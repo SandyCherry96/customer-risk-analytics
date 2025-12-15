@@ -23,6 +23,7 @@ Assess channel performance by analyzing transaction success, revenue, and risk a
 Evaluate the impact of credit score and demographics on customer lifetime value and risk profile
 
 Provide actionable insights that help stakeholders optimize pricing strategies, strengthen fraud controls, and improve customer retention
+
 ---
 
 ## Key Business Questions Addressed
