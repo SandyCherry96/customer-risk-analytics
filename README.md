@@ -4,7 +4,7 @@
 ## 1. Business Problem & Objective
 
 ### Business Problem
-The company processes a large volume of customer transactions, but some customers create financial and operational risk through fraud attempts, payment failures, and chargebacks. These risky behaviors can lead to revenue loss, increased operational costs, regulatory issues, and damage to customer trust.
+The company processes a large volume of customer transactions, but some customers create financial and operational risk through **fraud attempts, payment failures, and chargebacks**. These risky behaviors can lead to revenue loss, increased operational costs, regulatory issues, and damage to customer trust.
 
 Currently, risk-related information is scattered across multiple tables (transactions, payments, fraud flags, and chargebacks), making it difficult to identify risky customers early and consistently.
 
