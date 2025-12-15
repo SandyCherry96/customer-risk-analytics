@@ -1,54 +1,93 @@
+# 📊 Customer Risk & Performance Analysis — SQL Project
+## 📌 Project Overview
 
-# 📊 Customer Risk Analysis — SQL Project
+This project builds a customer-level risk and performance framework using SQL to analyze transactional behavior, revenue contribution, and risk exposure.
+The goal is to help businesses identify high-risk customers, evaluate the revenue vs risk trade-off, and support data-driven decisions across risk management, pricing, and customer retention.
 
-## 1. Business Problem & Objective
+The project simulates a real-world risk analytics workflow, where risk signals such as fraud, payment failures, and chargebacks are scattered across multiple operational tables and must be consolidated into actionable insights.
 
-### Business Problem
-The company processes a large volume of customer transactions, but some customers create financial and operational risk through **fraud attempts, payment failures, and chargebacks**. These risky behaviors can lead to revenue loss, increased operational costs, regulatory issues, and damage to customer trust.
+## 🎯 Business Objective
 
-## 🎯 Objective — Customer Risk & Performance Analysis
+The primary objective of this project is to identify and segment customers based on risk and performance by combining multiple behavioral risk signals and revenue metrics using SQL.
 
-The objective of this project is to analyze customer behavior, revenue contribution, and risk exposure using SQL in order to support data-driven decision-making across risk management, pricing, and customer retention.
+### Key Goals:
 
-Specifically, this project aims to:
+Classify customers into Low, Medium, and High Risk segments
 
-Classify customers into Low, Medium, and High-Risk segments based on fraud behavior, chargebacks, transaction outcomes, and credit score
+Evaluate the profitability of high-risk vs low-risk customers
 
-Identify revenue concentration and evaluate the trade-off between high-value and high-risk customers
+Compare fraud vs non-fraud customer behavior
 
-Compare fraud vs non-fraud customer behavior to understand financial and operational impact
+Analyze risk exposure across different transaction channels
 
-Assess channel performance by analyzing transaction success, revenue, and risk across different customer touchpoints
+Provide actionable insights to improve fraud controls, pricing strategy, and customer retention
 
-Evaluate the impact of credit score and demographics on customer lifetime value and risk profile
+## 🧩 Dataset Overview & Schema Design
 
-Provide actionable insights that help stakeholders optimize pricing strategies, strengthen fraud controls, and improve customer retention
+The analysis uses a relational transactional dataset with the following core tables:
 
----
+customers — customer master data
 
-## Key Business Questions Addressed
+transactions — purchase-level activity
 
-- Which customers are generating the highest risk?
-- What type of risk is most common (fraud, payment failure, chargeback)?
-- Are high-risk customers still profitable?
-- How does customer risk change over time?
-- Which customers should be monitored, restricted, or reviewed?
+payments — payment attempts and outcomes
 
----
-## 2. Understanding Risk Signals
+fraud_flags — fraud indicators at transaction level
 
-A risk signal represents any customer behavior that may cause financial loss, fraud, or operational issues.  
-In this project, risk is defined based on **customer behavior**, not demographics.
+chargebacks — post-transaction disputes
 
-**Risk signals used:**
-- **Fraud signals:** Transactions flagged as fraudulent or suspicious
-- **Payment risk:** Failed, reversed, or repeatedly retried payments
-- **Chargebacks:** Customer disputes raised after transaction completion
+### Schema Design Highlights:
 
-**Severity logic:**
-- **High:** Fraud flags, Chargebacks  
-- **Medium:** Repeated payment failures, Payment reversals  
-- **Low:** Occasional payment failures
+customer_id is the primary key for customer-level analysis
 
-Risk events occur at the **transaction level**, while final risk assessment is performed at the **customer level** using event frequency, severity, and recency.
+transaction_id connects transactions to all risk events
 
+Risk signals are captured at the transaction level and aggregated to the customer level
+
+This normalized design ensures data integrity, traceability, and scalability.
+
+## ⚠️ Understanding Risk Signals
+
+Customer risk is derived from behavioral signals, not demographics alone.
+
+Risk Indicators:
+
+Fraud Risk — transactions flagged as fraudulent
+
+Payment Risk — failed or reversed payments
+
+Chargeback Risk — disputed transactions causing revenue loss
+
+Risk Severity:
+
+High Severity: Fraud flags, chargebacks
+
+Medium Severity: Repeated payment failures
+
+Low Severity: Occasional payment issues
+
+Risk is evaluated based on frequency, severity, and recency of events.
+
+## 🔍 Data Validation & Initial Exploration
+
+Before analysis, extensive data validation was performed:
+
+Primary and foreign key integrity checks
+
+Duplicate and null value detection
+
+Data type validation for dates and monetary fields
+
+Logical consistency checks (e.g., chargeback amount ≤ transaction amount)
+
+Initial exploration included:
+
+Transaction distribution per customer
+
+Fraud and chargeback rates
+
+Payment failure patterns
+
+Outlier detection
+
+This ensured high-quality, reliable inputs for downstream analysis.
