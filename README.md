@@ -1,8 +1,8 @@
 # 📊 Customer Risk & Performance Analysis — SQL Project
 ## 📌 Project Overview
 
-This project builds a customer-level risk and performance framework using SQL to analyze transactional behavior, revenue contribution, and risk exposure.
-The goal is to help businesses identify high-risk customers, evaluate the revenue vs risk trade-off, and support data-driven decisions across risk management, pricing, and customer retention.
+Organizations processing high volumes of customer transactions face increasing exposure to fraud, payment failures, and chargebacks, which directly impact revenue, operational costs, and customer trust.
+Risk indicators are often scattered across multiple systems, making it difficult to identify risky customers early and evaluate whether they are still financially valuable.
 
 The project simulates a real-world risk analytics workflow, where risk signals such as fraud, payment failures, and chargebacks are scattered across multiple operational tables and must be consolidated into actionable insights.
 
