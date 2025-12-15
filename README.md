@@ -6,16 +6,13 @@
 ### Business Problem
 The company processes a large volume of customer transactions, but some customers create financial and operational risk through **fraud attempts, payment failures, and chargebacks**. These risky behaviors can lead to revenue loss, increased operational costs, regulatory issues, and damage to customer trust.
 
-Currently, risk-related information is scattered across multiple tables (transactions, payments, fraud flags, and chargebacks), making it difficult to identify risky customers early and consistently.
-
 ### Objective
 The objective of this project is to use SQL to:
 
 - Consolidate multiple risk signals into a single, unified **customer-level view**
 - Identify **high-risk customers** based on historical behavior
-- Create a **risk scoring and segmentation framework** (Low / Medium / High)
+- Create a **risk scoring and segmentation** (Low / Medium / High)
 - Enable **data-driven decisions** such as customer monitoring, policy tightening, or preventive actions
-- Produce **dashboard-ready tables** that can be directly consumed by **Power BI**
 
 ---
 
