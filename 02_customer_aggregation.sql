@@ -1,21 +1,43 @@
--- 1. Count transactions per customer
-SELECT
-    customer_id,
-    COUNT(*) AS total_transactions
-FROM transactions
-GROUP BY customer_id;
+---------------------------------------
+--- 1. CUSTOMER TRANSACTION AGGREGATION
+---------------------------------------
 
--- 2. Count successful and failure transactions
-SELECT
-    customer_id,
-    COUNT(*) AS total_transactions,
-    COUNT(CASE WHEN status = 'success' THEN 1 END) AS successful_transactions,
-    COUNT(CASE WHEN status <> 'success' THEN 1 END) AS failed_transactions,
-    ROUND(
-        COUNT(CASE WHEN status = 'success' THEN 1 END) * 1.0 / COUNT(*),
-        2
-    ) AS success_rate
-FROM transactions
-GROUP BY customer_id;
+WITH transaction_summary AS (
+    SELECT
+        customer_id,
+        COUNT(*) AS total_transactions,
+        SUM(amount) AS total_transaction_amount,
+        AVG(amount) AS avg_transaction_amount,
+        MIN(transaction_date) AS first_transaction_date,
+        MAX(transaction_date) AS last_transaction_date,
+        COUNT(*) FILTER (WHERE status = 'FAILED') AS failed_transactions,
+        COUNT(*) FILTER (WHERE status = 'SUCCESS') AS successful_transactions
+    FROM transactions
+    GROUP BY customer_id
+),
+
+-------------------------------------------
+ --- 2. CHARGEBACK AGGREGATION
+-------------------------------------------
+
+chargeback_summary AS (
+    SELECT
+        t.customer_id,
+        COUNT(cb.chargeback_id) AS total_chargebacks,
+        SUM(cb.chargeback_amount) AS total_chargeback_amount
+    FROM chargebacks cb
+    JOIN transactions t
+        ON cb.transaction_id = t.transaction_id
+    GROUP BY t.customer_id
+),
+
+-------------------------------------    
+--- 3. CUSTOMER RISK FEATURE AGGREGATION
+------------------------------------
+
+
+
+
+
 
 
