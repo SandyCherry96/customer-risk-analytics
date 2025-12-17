@@ -72,6 +72,19 @@ SELECT
     COUNT(*) FILTER (WHERE amount IS NULL) AS null_amount
 FROM chargebacks;
 
+---------------------------------------
+--- 5. TRANSACTION STATUS DISTRIBUTION
+--------------------------------------
+
+SELECT
+    status,
+    COUNT(*) AS transaction_count
+FROM transactions
+GROUP BY status
+
+
+
+
 
 
 
