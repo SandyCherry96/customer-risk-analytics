@@ -39,8 +39,7 @@ customer_agg AS (
     SELECT
         c.customer_id,
         c.signup_date,
-        c.customer_type,
-        c.country,
+        c.region,
         COALESCE(ts.total_transactions, 0) AS total_transactions,
         COALESCE(ts.total_transaction_amount, 0) AS total_transaction_amount,
         COALESCE(ts.avg_transaction_amount, 0) AS avg_transaction_amount,
