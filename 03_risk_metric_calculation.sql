@@ -22,6 +22,13 @@ normalized_risk AS (
 ------------------------------------------
 --- 2. CALCULATE COMBINED RISK SCORE
 ------------------------------------------
+
+-- Weight structure:
+50% chargeback_rate component
+30% failure_rate component
+10% recency weighting
+10% amount
+  
   
 risk_score_calc AS (
     SELECT
