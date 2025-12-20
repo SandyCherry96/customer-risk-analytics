@@ -66,7 +66,8 @@ Risk emerges from the **combination of behavioral signals**.
 
 ## Repository Structure
 
-
+``` 
+📁 Project Structure
 Customer_Risk_Analysis/
 ├── analysis/
 │ ├── risk_definition.md
@@ -82,7 +83,7 @@ Customer_Risk_Analysis/
 │ ├── key_findings.md
 │ └── business_recommendations.md
 
-
+```
 
 ---
 
@@ -92,9 +93,12 @@ The analysis follows a **step-by-step SQL pipeline**, designed to reflect
 how risk analysis would be built in production.
 
 ### 1. Data Understanding (`01_data_understanding.sql`)
-- Explore transaction volumes and time ranges
-- Validate joins between transactions, customers, and chargebacks
-- Identify missing values and anomalies
+- Validate table schemas, column types, and primary join keys
+- Assess overall data volume across customers, transactions, and chargebacks
+- Examine transaction and chargeback time ranges for coverage and recency
+- Identify missing values in critical fields (IDs, dates, amounts, status)
+- Review transaction status distribution to understand success vs failure behavior
+- Perform basic sanity checks to detect anomalies before aggregation
 
 ### 2. Customer Aggregation (`02_customer_aggregation.sql`)
 - Aggregate transaction-level data to the customer level
@@ -112,9 +116,11 @@ how risk analysis would be built in production.
   - High-value transaction indicators
 
 ### 4. Risk Scoring (`04_risk_scoring.sql`)
-- Combine individual risk signals into a composite risk score
-- Apply simple, explainable logic (rule-based or weighted)
-- Avoid black-box modeling
+- Combine individual risk signals into a single composite risk score
+- Normalize risk scores to a 0–100 scale for comparability
+- Rank customers by relative risk to identify highest-risk profiles
+- Assign interpretable risk levels (e.g., Low / Medium / High)
+- Produce an ordered customer list for downstream segmentation and analysis
 
 ### 5. Customer Segmentation (`05_customer_segmentation.sql`)
 - Bucket customers into risk tiers (e.g., Low / Medium / High)
@@ -154,9 +160,7 @@ This framework enables:
 - No external or real-time signals included
 - Correlation, not causation
 - Prioritizes explainability over predictive power
-
-See `analysis/assumptions_limitations.md` for full details.
-
+  
 ---
 
 ## Future Enhancements
