@@ -17,7 +17,7 @@ normalized_risk AS (
             AS norml_amount
 
     FROM customer_agg
-)
+),
 
 ------------------------------------------
 --- 2. CALCULATE COMBINED RISK SCORE
@@ -50,7 +50,7 @@ risk_score_calc AS (
     ) AS risk_score
 
     FROM normalized_risk
-)
+),
 
 -----------------------------------------------------------------
 --- 3. ASSIGN RISK LEVEL - Using thresholds for low, medium, high
@@ -66,6 +66,9 @@ customer_risk AS (
         END AS risk_level
     FROM risk_score_calc
 )
+
+SELECT *
+FROM customer_risk;
 
 -- Final table
 CREATE TABLE customer_risk_metrics AS
